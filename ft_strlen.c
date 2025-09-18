@@ -1,4 +1,6 @@
-int	ft_strlen(char *string)
+#include "libft.h"
+
+size_t	ft_strlen(char *string)
 {
 	int len;
 	len = 0;
