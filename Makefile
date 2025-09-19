@@ -1,6 +1,6 @@
 CC = cc 
 FLAGS = -Wall -Wextra -Werror
- # Name defines name for the final output file
+ # Name defines name for the final output file wich is static library libft.a
 NAME = libft.a
 HEADER = libft.h
 SOURCE = 
