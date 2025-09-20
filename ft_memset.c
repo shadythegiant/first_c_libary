@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_memset(void *buffer, int c, size_t size)
+void	*ft_memset(void *buffer, int c, size_t size)
 {
 	size_t		counter;
 	unsigned	low8bits;
