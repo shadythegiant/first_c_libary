@@ -1,7 +1,8 @@
 {
-    "files.associations": {
-        "strings.h": "c",
-        "stdlib.h": "c",
-        "string.h": "c"
-    }
+  "files.associations": {
+    "strings.h": "c",
+    "stdlib.h": "c",
+    "string.h": "c"
+  },
+  "makefile.configureOnOpen": false
 }
