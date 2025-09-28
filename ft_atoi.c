@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 17:33:07 by azahidi           #+#    #+#             */
-/*   Updated: 2025/09/28 17:33:10 by azahidi          ###   ########.fr       */
+/*   Created: 2025/09/28 19:01:56 by azahidi           #+#    #+#             */
+/*   Updated: 2025/09/28 19:01:58 by azahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t size)
-{
-	size_t			i;
-	unsigned char	*s1_ptr;
-	unsigned char	*s2_ptr;
+int ft_atoi(const char *nptr) { 
+	size_t i; 
+	int  num; 
+	short sign; 
 
-	i = 0;
-	s1_ptr = (unsigned char *)s1;
-	s2_ptr = (unsigned char *)s2;
-	if (size == 0)
-		return (0);
-	while (i < size)
-	{
-		if (s1_ptr[i] != s2_ptr[i])
-		{
-			return ((unsigned char)s1_ptr[i] - (unsigned char)s2_ptr[i]);
+	i = 0; 
+	num = 0; 
+	sign = 1; 
+
+	while( (nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32 ) 
+			i++; 
+	if(nptr[i] == '+' || nptr[i] == '-') { 
+		if(nptr[i] == '-') { 
+			sign = -sign; 
 		}
-		i++;
+		i++; 
+	}	
+	while(ft_isdigit(nptr[i])) { 
+		num = (num * 10) + (nptr[i] - '0'); 
+		i++; 
 	}
-	return (0)
+
+	return (num * sign); 
 }
+
