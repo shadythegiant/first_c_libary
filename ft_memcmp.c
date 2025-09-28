@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 20:51:22 by azahidi           #+#    #+#             */
-/*   Updated: 2025/09/21 20:51:25 by azahidi          ###   ########.fr       */
+/*   Created: 2025/09/28 17:33:07 by azahidi           #+#    #+#             */
+/*   Updated: 2025/09/28 17:33:10 by azahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
-{
-	size_t	len;
-	char	*endptr;
+int ft_memcmp(const void *s1, const void *s2, size_t size) { 
 
-	len = ft_strlen(s);
-	endptr = (char *)&s[len];
-	while (endptr >= s)
-	{
-		if (*endptr == (char)c)
-		{
-			return ((char *)endptr);
+	size_t i; 
+	unsigned char *s1_ptr;  
+	unsigned char *s2_ptr;  
+
+	i = 0; 
+	s1_ptr  = (unsigned char *)s1;
+	s2_ptr  = (unsigned char *)s2;
+
+	if( size  == 0) 
+		return (0); 
+
+	while (i < size) {
+		if(s1_ptr[i] != s2_ptr[i]) { 
+			return ((unsigned char)s1_ptr[i] - (unsigned char)s2_ptr[i]);  
 		}
-		endptr--;
+
+		i++; 
 	}
-	return (NULL);
-}
+	return (0)
+ }
+

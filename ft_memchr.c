@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 20:51:22 by azahidi           #+#    #+#             */
-/*   Updated: 2025/09/21 20:51:25 by azahidi          ###   ########.fr       */
+/*   Created: 2025/09/28 17:07:13 by azahidi           #+#    #+#             */
+/*   Updated: 2025/09/28 17:07:16 by azahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+void	*ft_memchr(void *s, int c, size_t size)
 {
-	size_t	len;
-	char	*endptr;
+	size_t			i;
+	unsigned char	*s_ptr;
+	unsigned char	target_mask;
 
-	len = ft_strlen(s);
-	endptr = (char *)&s[len];
-	while (endptr >= s)
+	s_ptr = (unsigned char *)s;
+	target_mask = c & 0xFF;
+	i = 0;
+	while (i < size)
 	{
-		if (*endptr == (char)c)
+		if (s_ptr[i] == target_mask)
 		{
-			return ((char *)endptr);
+			return ((void *)(s_ptr + i));
 		}
-		endptr--;
+		i++;
 	}
 	return (NULL);
 }
