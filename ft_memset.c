@@ -26,4 +26,5 @@ void	*ft_memset(void *buffer, int c, size_t size)
 		byt_ptr[counter] = low8bits;
 		counter++;
 	}
+	return (buffer); 
 }

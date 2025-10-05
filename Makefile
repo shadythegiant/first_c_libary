@@ -3,7 +3,11 @@ FLAGS = -Wall -Wextra -Werror
  # Name defines name for the final output file wich is static library libft.a
 NAME = libft.a
 HEADER = libft.h
-SOURCE = 
+SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	   ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+	   ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+	   ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c \
+	   ft_calloc.c ft_strdup.c	
 BONUSESOURCE = 
 #this does subsitiution 
 OFILES = $(SOURCE:.c=.o)
@@ -13,7 +17,7 @@ OBFILES = $(BONUSESOURCE:.c=.o)
 #this says in order to create libft source files need to be present 
 
 $(NAME): $(OFILES)
-
+		ar rcs $(NAME) $(OFILES)
 # all is default and prerequisites is NAME
 all: $(NAME)
 # $< means first prerequisite $@ target 
@@ -23,7 +27,7 @@ all: $(NAME)
 
 %.o : %.c 
 	$(CC) -c $(FLAGS) $< -o $@
-	ar rcs $(NAME) $@
+	
 
 #additional targets 
 # a flag that creates a test program 
