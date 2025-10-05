@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahidi <azahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/28 18:32:42 by azahidi           #+#    #+#             */
-/*   Updated: 2025/09/28 18:32:45 by azahidi          ###   ########.fr       */
+/*   Created: 2025/10/05 13:57:09 by azahidi           #+#    #+#             */
+/*   Updated: 2025/10/05 13:57:11 by azahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
-	int	j;
+	void	*ptr;
+	size_t	total_size;
 
-	if (!*needle)
-		return ((char *)haystack);
-	i = 0;
-	while (i < len && haystack[i])
+	if (size > 0 && nmemb > SIZE_MAX / size)
 	{
-		j = 0;
-		while (j + i < len && haystack[i + j] && needle[j] && haystack[i
-			+ j] == needle[j])
-			j++;
-		if (needle[j] == '\0')
-		{
-			return ((char *)&haystack[i]);
-		}
-		i++;
+		return (NULL);
 	}
-	return (NULL);
+	total_size = (nmemb * size);
+	ptr = malloc(total_size);
+	if (!ptr)
+	{
+		return (NULL);
+	}
+	ft_memset(ptr, 0, total_size);
+	return (ptr);
 }
