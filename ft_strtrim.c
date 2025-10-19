@@ -39,11 +39,7 @@ char *ft_strtrim(char const *s1, char const *set) {
     result = malloc(sizeof(char) * (size + 1)); 
     if(!result)
         return NULL; 
-    while(start <= end) {
-        result[result_index++] = *start++; 
-    }    
-    result[result_index] = '\0'; 
-    return(result); 
+    result = ft_substr(s1, start, size ); 
 }
 
 int main() { 

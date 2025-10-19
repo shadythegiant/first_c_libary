@@ -39,7 +39,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = malloc(sizeof(char) * (sub_len + 1));
 	if (!sub)
 		return (NULL);
-	ft_memset(sub, (s + start), sub_len);
+	ft_memcpy(sub, (s + start), sub_len);
 	sub[sub_len] = '\0';
 	return (sub);
+}
+
+#include <stdio.h>
+
+int main() { 
+	char *s = "hello"; 
+	char *sub = ft_substr(s, 2, 3); 
+	printf("%s", sub); 
 }
