@@ -43,8 +43,8 @@ char *ft_strtrim(char const *s1, char const *set) {
 }
 
 int main() { 
-    char *s = " -hello";
-    char *set = " -"; 
+    char *s = "_\n";
+    char *set = " -_"; 
     char *result = ft_strtrim(s, set); 
     printf("%s", result);   
 }
