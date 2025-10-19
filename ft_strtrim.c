@@ -13,7 +13,7 @@ static size_t ft_ischarset(char c, char const *set) {
     return 0; 
 }
 char *ft_strtrim(char const *s1, char const *set) {
-    size_t result_index; 
+    size_t start_index; 
     size_t size; 
     char *result;
     char const *start ; 
@@ -21,6 +21,7 @@ char *ft_strtrim(char const *s1, char const *set) {
 
     start = s1; 
     end = (start + (ft_strlen(s1) -1) );
+    
 
     if(start > end) { 
         result = malloc(1); 
@@ -36,10 +37,12 @@ char *ft_strtrim(char const *s1, char const *set) {
     while(end >= start && ft_ischarset(*end, set))
         end--; 
      size = (end - start ) + 1; 
+     start_index = ( start - s1 ); 
     result = malloc(sizeof(char) * (size + 1)); 
     if(!result)
         return NULL; 
-    result = ft_substr(s1, start, size ); 
+    result = ft_substr(s1, start_index, size ); 
+    return (result); 
 }
 
 int main() { 
