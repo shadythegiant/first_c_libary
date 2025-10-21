@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	ft_ischarset(char c, char const *set)
 {
 	size_t	i;
@@ -59,8 +60,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	char *s = "_\n";
-	char *set = " -_";
-	char *result = ft_strtrim(s, set);
+	char	*s;
+	char	*set;
+	char	*result;
+
+	s = "_\n";
+	set = " -_";
+	result = ft_strtrim(s, set);
 	printf("%s", result);
 }
