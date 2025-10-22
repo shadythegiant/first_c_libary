@@ -14,12 +14,12 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	size_t i;
-	char *dest_ptr = (char *)dest;
-	const char *src_ptr = (const char *)src;
+	size_t			i;
+	char			*dest_ptr
+	const	char	*src_ptr;
 
+	dest_ptr = (char *)dest;
+	src_ptr = (const char *)src_ptr;
 	i = 0;
 	while (i < n)
 	{
@@ -27,4 +27,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	return (dest);
-};
+}
