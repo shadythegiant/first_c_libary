@@ -14,13 +14,13 @@
 
 void	*ft_memset(void *buffer, int c, size_t size)
 {
-	size_t		counter;
-	unsigned	low8bits;
-	char		*byt_ptr;
+	size_t			counter;
+	unsigned char	low8bits;
+	unsigned char	*byt_ptr;
 
 	counter = 0;
-	low8bits = c & 0xFF;
-	byt_ptr = (char *)buffer;
+	low8bits = (unsigned char)c;
+	byt_ptr = (unsigned char *)buffer;
 	while (counter < size)
 	{
 		byt_ptr[counter] = low8bits;
