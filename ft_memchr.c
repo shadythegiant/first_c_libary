@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memchr(void *s, int c, size_t size)
+void	*ft_memchr(const void *s, int c, size_t size)
 {
 	size_t			i;
-	unsigned char	*s_ptr;
+	const unsigned char	*s_ptr = (const unsigned char *)s ;
 	unsigned char	target_mask;
 
-	s_ptr = (unsigned char *)s;
 	target_mask = c & 0xFF;
 	i = 0;
 	while (i < size)
