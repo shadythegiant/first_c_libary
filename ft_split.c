@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	ft_wordcount(char const *s, char delimeter)
 {
@@ -79,28 +78,14 @@ char	**ft_split(char const *s, char c)
 	size_t	word_count;
 	char	**strings;
 
-	// edge case check
 	if (!s)
 		return (NULL);
 	word_count = ft_wordcount(s, c);
 	strings = malloc(sizeof(char *) * (word_count + 1));
 	if (!strings)
 		return (NULL);
-	// adding NUll to the end of the array
 	strings[word_count] = NULL;
 	if (ft_allocate(strings, s, c))
 		return (NULL);
 	return (strings);
-}
-
-int	main(void)
-{
-	size_t i = 0;
-	char *s = "--hello--world--this--me";
-	char c = '-';
-	char **strings = ft_split(s, c);
-	while (i < 4)
-	{
-		printf("%s \n", strings[i++]);
-	}
 }
