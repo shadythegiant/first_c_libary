@@ -66,8 +66,8 @@ static size_t	ft_allocate(char **strings, char const *s, char delimeter)
 		{
 			if (ft_freeallocation(strings, position, len + 1))
 				return (1);
+			ft_strlcpy(strings[position], (s - len), (len + 1));
 		}
-		ft_strlcpy(strings[position], (s - len), (len + 1));
 		position++;
 	}
 	return (0);
