@@ -9,10 +9,7 @@
 /*   Updated: 2025/10/22 15:22:36 by azahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static size_t	ft_countdigits(int n)
 {
@@ -39,8 +36,8 @@ static size_t	ft_countdigits(int n)
 static char	*ft_fillstr(char *s, int n)
 {
 	size_t	size;
-	size_t	counter;
-	size_t	start;
+	int		counter;
+	int		start;
 	long	nb;
 
 	size = ft_countdigits(n);
@@ -58,8 +55,6 @@ static char	*ft_fillstr(char *s, int n)
 	{
 		s[counter] = (nb % 10) + '0';
 		nb = nb / 10;
-		if (counter == start)
-			break ;
 		counter--;
 	}
 	s[size] = '\0';
@@ -79,39 +74,5 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-// Make sure this includes your ft_itoa prototype
 
-int	main(void)
-{
-	size_t	count;
-	int		n;
-	char	*result;
 
-	int test_values[] = {
-		0,
-		1,
-		-1,
-		42,
-		-42,
-		123456,
-		-123456,
-		2147483647, // INT_MAX
-		-2147483648 // INT_MIN
-	};
-	count = sizeof(test_values) / sizeof(test_values[0]);
-	for (size_t i = 0; i < count; i++)
-	{
-		n = test_values[i];
-		result = ft_itoa(n);
-		if (result == NULL)
-		{
-			printf("ft_itoa(%d) → NULL (allocation failed)\n", n);
-		}
-		else
-		{
-			printf("ft_itoa(%d) → \"%s\"\n", n, result);
-			free(result); // Always free the allocated string
-		}
-	}
-	return (0);
-}
