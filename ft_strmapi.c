@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new_string = malloc(size + 1);
 	if (!new_string)
 		return (NULL);
-	while (s[i])
+	while (s[index])
 	{
 		new_string[index] = f(index, s[index]);
 		index++;
