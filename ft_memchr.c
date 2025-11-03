@@ -13,9 +13,9 @@
 
 void	*ft_memchr(const void *s, int c, size_t size)
 {
-	size_t			i;
+	size_t				i;
 	const unsigned char	*s_ptr = (const unsigned char *)s ;
-	unsigned char	target_mask;
+	unsigned char		target_mask;
 
 	target_mask = c & 0xFF;
 	i = 0;

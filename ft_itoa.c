@@ -73,6 +73,3 @@ char	*ft_itoa(int n)
 	str = ft_fillstr(str, n);
 	return (str);
 }
-
-
-
